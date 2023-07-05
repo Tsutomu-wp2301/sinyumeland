@@ -49,7 +49,7 @@ $(function(){
 //navi
 $(function(){
 	$('#gnavi a img').hover(
-		function(){$(this).fadeTo(400, 0);},
+		function(){$(this).fadeTo(400, 0.5);},
 		function(){$(this).fadeTo(400, 1.0);}
 	);
 });

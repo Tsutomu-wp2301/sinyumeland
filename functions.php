@@ -1,7 +1,10 @@
 <?php
 add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 142, true );
+add_image_size('150_thumbnail', 150, 75, true );
+add_image_size('280_thumbnail', 280, 125, true );
 add_image_size('640_thumbnail', 640, 424, true );
+set_post_thumbnail_size( 200, 142, true );
+
 
 /* サイドウィジェット */
 if ( function_exists('register_sidebar') )
@@ -37,7 +40,32 @@ function post_ogp($id) {
 	}
 }
 
-/*サムネイル表示*/
-add_theme_support('post-thumbnails');
-	
-?>
+function enqueue_my_scripts() {
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3');
+	wp_enqueue_script('bxslider', get_template_directory_uri() . '/js/bxslider/jquery.bxslider.js',array('jquery'), NULL );
+	wp_enqueue_script('glance', get_template_directory_uri() . '/js/glance/jquery.glance.js',array('jquery'), NULL );
+	wp_enqueue_script('audio', get_template_directory_uri() . '/js/audiojs/audio.min.js',array('jquery'), NULL );
+	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js',array('jquery'), NULL );
+	wp_enqueue_script('agent', get_template_directory_uri() . '/js/agent.js',array('jquery'), NULL );
+	wp_enqueue_script('facebook-sdk', get_template_directory_uri() . '/js/facebook.js', array(), '1.0', true);/* facebookの表示 */
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.2');
+	wp_enqueue_script('glide', get_template_directory_uri() . '/js/jquery.glide.js',array('jquery'), NULL );
+	wp_enqueue_script('FooTable', get_template_directory_uri() . '/js/FooTable.js',array('jquery'), NULL );
+	wp_enqueue_script('easySlideText', get_template_directory_uri() . '/js/easySlideText.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/pulltorefresh.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/swiperAll.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/swiper.js',array('jquery'), NULL );
+	wp_enqueue_script('hiro','/wp-content/themes/yumelandgroup01/js/jquery-hiro.js',array('jquery'), NULL );
+	wp_enqueue_script('slider--sp', get_template_directory_uri() . '/js/hiromslide/hiromslide.js',array('jquery'), NULL );
+	wp_enqueue_script('swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', array(), '3.4.1', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_my_scripts');
+
+
+function custom_attribute( $html ){
+    $myclass = 'myclass'; // クラス名をサムネイル画像に追加する
+    return preg_replace('/class=".*\w+"/', 'class="'. $myclass .'"', $html);
+}
+add_filter( 'post_thumbnail_html', 'custom_attribute' );

@@ -55,9 +55,11 @@ function enqueue_my_scripts() {
 	wp_enqueue_script('FooTable', get_template_directory_uri() . '/js/FooTable.js',array('jquery'), NULL );
 	wp_enqueue_script('easySlideText', get_template_directory_uri() . '/js/easySlideText.js',array('jquery'), NULL );
 	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/pulltorefresh.js',array('jquery'), NULL );
-	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/swiperAll.js',array('jquery'), NULL );
-	wp_enqueue_script('pulltorefresh', get_template_directory_uri() . '/js/swiper.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh2', get_template_directory_uri() . '/js/swiperAll.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh3', get_template_directory_uri() . '/js/swiper.js',array('jquery'), NULL );
+	wp_enqueue_script('pulltorefresh4', get_template_directory_uri() . '/js/addOpen.js',array('jquery'), NULL );/* トグルクラス */
 	wp_enqueue_script('hiro','/wp-content/themes/yumelandgroup01/js/jquery-hiro.js',array('jquery'), NULL );
+	wp_enqueue_script('headerClose1','/wp-content/themes/yumelandgroup01/js/headerClose.js',array('jquery'), NULL );
 	wp_enqueue_script('slider--sp', get_template_directory_uri() . '/js/hiromslide/hiromslide.js',array('jquery'), NULL );
 	wp_enqueue_script('swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', array(), '3.4.1', true);
 }

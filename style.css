@@ -1935,12 +1935,15 @@ body {
 		margin-left: auto;
 	}
 
+
+
 	/* ----------------------------------------------------
-		header
+	///////////////////////////////////////////////////////
+		header  ヘッダー
+  ///////////////////////////////////////////////////////
 	---------------------------------------------------- */
 
 	/*階層用*/
-
 
 
 
@@ -1974,7 +1977,130 @@ body {
 
 	/*階層用　END*/
 
+
 	/*トップページ用*/
+	
+
+
+	/* ヘッダーを閉じるクラス */
+	.hidden {
+		opacity: 0;
+
+
+	}
+	.p-header-flex.hidden {
+		opacity: 0;
+
+	}
+
+	.p-header-flex {
+		background-color:#fff;
+		display: flex;
+		align-items: center;
+		height: 80px;
+		width: 100vw;
+		position: fixed;
+		top: 0px;
+		opacity: 1;
+		transition: opacity 0.2s ease;
+	}	
+	.p-header-flex img {
+		display: block;
+		height: 30px;
+		width: auto;
+		padding-left: 30px;
+	}
+	.p-header--navMenu {
+		height: 50px;
+		width: 100vw;
+		position: fixed;
+		top: 80px;
+		border-top: 2px solid #d5d4d4;
+		background-color: #faf8f8;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+	.p-header--navMenu--flex {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+	}
+	.p-header--navMenu li {
+		display: block;
+		color: #000;
+		font-size: 1rem;
+	}
+	.p-menu-item {
+		position: relative;
+		background-color: #faf8f8;
+		transition: 0.5s;
+	}
+	.p-menu-item:hover {
+		background-color:#dcd8d8c3;
+	}
+
+	.p-menu-item a {
+		display: flex;
+		height: 50px;
+		align-items: center;
+		color: #000;
+		font-size: 1rem;
+		padding-left: 40px;
+		padding-right: 40px;
+		text-decoration: none;
+	}
+	.p-inner-list {
+		padding-left: 20px;
+		padding-right: 20px;
+		background-color: #fff;
+		white-space: nowrap;
+		transition: 0.1s;
+		font-weight: normal;
+	}
+	.p-inner-list--wrappr4 {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+		position: absolute;
+	}
+	.open .p-inner-list--wrappr4 {
+		max-height: 160px;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+		position: absolute;
+	}
+	.p-inner-list--wrappr {
+		position: absolute;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+	}
+	.open .p-inner-list--wrappr {
+		max-height: 40px;
+		position: absolute;
+	}
+	.p-inner-list:hover {
+		background-color: #dcd8d8b3;
+		font-weight: bold;
+	}
+	.p-inner-list a {
+
+	}
+	.p-inner-list:hover a {
+
+	}
+
+
+
+
+	.p-inner-list a {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		padding: 0px;
+	}
+
+
 
 
 
@@ -2245,7 +2371,7 @@ body {
 
 
 	#point3 {
-		margin-top: -200px;
+		margin-top: 110px;
 		width: 1000px;
 		margin-right: auto;
 		margin-left: auto;
@@ -3617,11 +3743,15 @@ body {
 	}
 
 	/* ----------------------------------------------------
-		footer
+		footer　　フッター
 	---------------------------------------------------- */
 
 
-
+.c-footer-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 
 
@@ -3845,6 +3975,9 @@ body {
 	!important
 	}
 
+
+
+
 	/* ----------------------------------------------------
 		トップページのみ　スライドショー
 	---------------------------------------------------- */
@@ -3879,7 +4012,7 @@ body {
 		margin: 0 auto;
 		position: relative;
 		z-index: -9999;
-		top: -104px;
+		top: 129px;
 		min-height: 578px;
 	}
 
@@ -4312,8 +4445,7 @@ body {
 	*/
 
 
-
-
+	
 
 
 
@@ -4402,6 +4534,7 @@ body {
 		margin: 0px;
 		padding: 0px;
 	}
+
 
 	#header_in .flip .front {
 		-webkit-transform: translate3d(0, 0, 1px);
@@ -4555,19 +4688,11 @@ body {
 		ページトップへ戻る
 	---------------------------------------------------- */
 
-
-
-
-
-
-
-
-
 	.pagetop {
 		display: none;
 		position: fixed;
-		bottom: 41px;
-		right: 10px;
+		bottom: 141px;
+		right: 40px;
 		z-index: 9999;
 	}
 
@@ -4583,6 +4708,55 @@ body {
 		line-height: 50px;
 	}
 
+
+	.p-logo--yumeland {
+		position: fixed;
+		width: 100px;
+		height: 100px;
+		display: block;
+		bottom: 30px;
+		right: 13px;
+		z-index: 10;
+	}
+	.c-rollover {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		overflow: hidden; /* 要素の内容がはみ出さないように設定 */
+	}
+	.cube {
+		height: 100%;
+		width: 100%;
+		transform-style: preserve-3d;
+		transition: transform 1s, opacity 0.5s; /* 回転と透明度のアニメーション */
+		margin: 0;
+		padding: 0;
+	}
+	.front {
+		opacity: 1;
+	}
+	.back {
+		opacity: 0;
+		backface-visibility: hidden;
+		transform: rotateY(180deg);
+		position: absolute;
+		left: 0;
+		top: 0;
+		transition-delay: 0.3s; /* アニメーション遅延 */
+	}
+	.c-rollover:hover .cube {
+		transform: rotateY(180deg);
+	}
+	.c-rollover:hover .front {
+		opacity: 0;
+		transition-delay: 0.5s; /* アニメーション遅延 */
+	}
+	.c-rollover:hover .back {
+		opacity: 1;
+	}
+	
+
+	
 	/* ----------------------------------------------------
 		Lightbox
 	---------------------------------------------------- */

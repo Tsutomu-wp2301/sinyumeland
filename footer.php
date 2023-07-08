@@ -2,7 +2,7 @@
 	<div class="p-pc--layout">
 		<div id="footer">
 			<div id="fnavi" class="clearfix">
-				<ul>
+				<ul class="c-footer-flex">
 					<li><a href="<?php echo home_url() ; ?>" title="夢らんど">ホーム</a> ｜　</li>
 					<li><a href="<?php echo home_url() ; ?>/tenpo/">店舗一覧</a> ｜　</li>
 					<li><a href="<?php echo home_url() ; ?>/concept/">コンセプト</a> ｜　</li>

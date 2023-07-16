@@ -1,39 +1,24 @@
 	<?php get_header(); ?>
 		<div class="p-pc--layout">
-			<!--point3-->
-			<div id="point3" class="clearfix">
-				<ul>
-					<li class="first">
-						<div class="point3_img">
-							<div class="point3_imgz">
-								<img src="<?php bloginfo('template_directory'); ?>/images/point3_02_01.jpg" alt="夢らんどグループ採用情報" width="312" height="95" />
-							</div>
-							<div id="youtubep01">
-								<iframe width="312" height="240" src="https://www.youtube.com/embed/aC9-Qsoqd70?autoplay=1&amp;loop=1&amp;playlist=aC9-Qsoqd70&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-							</div>
-						</div>
-						<div class="point3_img2">
-							<a href="<?php echo home_url() ; ?>/tenpo/"><span></span><img src="<?php bloginfo('template_directory'); ?>/images/point3_1.jpg" alt="夢らんど各店舗情報" width="300" height="41" /></a>
-						</div>
+			<div class = "p-introduction--wrapper"><!-- ３つのポイントを紹介 -->
+				<ul class="p-introduction p-introduction--flex">
+					<li class="p-introduction__tenpo">
+						<a href="<?php echo esc_url( home_url() ) . '/page-tenpo'; ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>'/images/slide143.jpg'"  alt="店舗一覧"><span class="image-overlay">店舗一覧</span>
+						</a>
 					</li>
-					<li>
-						<div class="point3_img">
-							<img src="<?php bloginfo('template_directory'); ?>/images/point3_01_01.jpg" alt="夢らんどグループ採用情報" width="312" height="95" />
-						</div>
-						<div class="point3_img2">
-							<a href="<?php echo home_url() ; ?>/saiyou/"><span></span><img src="<?php bloginfo('template_directory'); ?>/images/point3_2.jpg" alt="採用情報" width="300" height="41" /></a>
-						</div>
+					<li class="p-introduction__recruit">
+						<a href="<?php echo esc_url( home_url() ) . '/page-tenpo'; ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>'/images/slide108.jpg'"  alt="採用情報"><span class="image-overlay">採用について</span>
+						</a>
 					</li>
-					<li>
-						<div class="point3_img">
-							<img src="<?php bloginfo('template_directory'); ?>/images/point3_03_01.jpg" alt="夢らんどグループ企業情報" width="312" height="95" />
-						</div>
-						<div class="point3_img2">
-							<a href="<?php echo home_url() ; ?>/company/"><span></span><img src="<?php bloginfo('template_directory'); ?>/images/point3_3.jpg" alt="企業情報" width="300" height="41" /></a>
-						</div>
+					<li class="p-introduction__company">
+						<a href="<?php echo esc_url( home_url() ) . '/page-tenpo'; ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>'/images/slide124.jpg'"  alt="企業情報"><span class="image-overlay">企業について</span>
+						</a>
 					</li>
 				</ul>
-			</div><!--point3 END-->
+			</div>
 		</div>
 		<div class="p-pc--layout">
 			<!--
@@ -46,8 +31,10 @@
 			<!--contents-->
 			<div id="contents" class="clearfix">
 				<div id="main">
-					<div id="tenkyu_list">
-						<p class="info">営業情報</p>
+					<div class="h2-flex">
+						<h2 class="title-home">営 業 情 報</h2>
+					</div>
+					<article id="tenkyu_list">
 						<ul class="content">
 							<?php
 								query_posts(
@@ -56,35 +43,38 @@
 									'post_type' => 'post',
 									'orderby' => 'date',
 									'order' => 'DESC',
-									'posts_per_page' => '1'
+									'posts_per_page' => '2'
 									)
 								);
 								if (have_posts()) : while (have_posts()) : the_post();
 							?>
 							<li>
-							<div class="time">
-							<!--<?php
-								$d_year = get_the_time('Y');
-								$d_month = get_the_time('m');
-								$d_day = get_the_time('d');
-								$d_youbi = get_the_time('D');
-								echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-							?>-->
-							</div>
-							<div class="honbun">
-							<?php the_content(); ?>
-							</div>
+								<div class="time">
+									<!--<?php
+										$d_year = get_the_time('Y');
+										$d_month = get_the_time('m');
+										$d_day = get_the_time('d');
+										$d_youbi = get_the_time('D');
+										echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
+									?>-->
+								</div>
+								<div class="honbun">
+									<?php the_content(); ?>
+								</div>
 							</li>
 							<?php endwhile; endif; wp_reset_query(); ?>
 						</ul>
-					</div>
+					</article>
 					<br class="clearfix" />
-					<h3><img src="<?php bloginfo('template_directory'); ?>/images/ameba_midashi.png" alt="夢らんど各店メディア掲載情報" width="324" height="40" /></h3>
-					<div id="ameba_pick">
+					<!-- <h3><img src="<?php bloginfo('template_directory'); ?>/images/ameba_midashi.png" alt="夢らんど各店メディア掲載情報" width="324" height="40" /></h3> -->
+					<div class="h2-flex">
+						<h2 class= "title-home">メディア掲載情報</h2>
+					</div>
+					<article id="ameba_pick">
 						<?php
 							query_posts(
 							Array(
-								'cat' => '2',
+								'cat' => '2',/* メディア情報 */
 								'post_type' => 'post',
 								'orderby' => 'date',
 								'order' => 'DESC',
@@ -93,36 +83,10 @@
 							);
 							if (have_posts()) : while (have_posts()) : the_post();
 						?>
-						<div class="flashnews clearfix">
-							<div class="left">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail(); ?>
-								</a>
-							</div>
-							<div class="right"><span class="title"><a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a></span><span class="content">
-								<?php echo nl2br(mb_substr(strip_tags($post-> post_content),0,50).'<a class="more" href="'. get_permalink()) . '">（さらに...）</a>'; ?>
-								</span>
-							</div>
-							<span class="data">
-								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-								?>　
-								<span class="kokate">
-									<?php
-									echo get_the_category_list( ' ／ ' );
-									?>
-								</span>
-							</span>
-						</div>
+						<?php get_template_part('template-parts/media','post2')?>
 						<div class="img_bottom20"></div>
 						<?php endwhile; endif; wp_reset_query(); ?>
-					</div>
+					</article>
 					<div id="ameba_list">
 						<ul class="tab">
 							<li class="select first">すべて</li>
@@ -149,17 +113,17 @@
 									);
 									if (have_posts()) : while (have_posts()) : the_post();
 								?>
-								<div> <span>
-								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-								?>
-								</span>　<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a> </div>
+								<div>
+									<span>
+										<?php
+											$d_year = get_the_time('Y');
+											$d_month = get_the_time('m');
+											$d_day = get_the_time('d');
+											$d_youbi = get_the_time('D');
+											echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
+										?>
+									</span>　<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</div>
 								<?php endwhile; endif; wp_reset_query(); ?>
 							</li>
 							<!--スーパー-->
@@ -167,7 +131,7 @@
 								<?php
 									query_posts(
 									Array(
-										'cat' => '6',
+										'cat' => '4',
 										'post_type' => 'post',
 										'orderby' => 'date',
 										'order' => 'DESC',
@@ -176,74 +140,10 @@
 									);
 									if (have_posts()) : while (have_posts()) : the_post();
 								?>
-								<div> <span>
-								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-								?>
-								</span>　<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a> </div>
+								<?php get_template_part('template-parts/media','posttitle')?>
 								<?php endwhile; endif; wp_reset_query(); ?>
 							</li>
 							<!--かすかべ-->
-							<li class="hide">
-								<?php
-									query_posts(
-									Array(
-										'cat' => '5',
-										'post_type' => 'post',
-										'orderby' => 'date',
-										'order' => 'DESC',
-										'posts_per_page' => '5'
-										)
-									);
-									if (have_posts()) : while (have_posts()) : the_post();
-								?>
-								<div> <span>
-								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-								?>
-								</span>　<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a> </div>
-								<?php endwhile; endif; wp_reset_query(); ?>
-							</li>
-							<!--平方-->
-							<li class="hide">
-								<?php
-									query_posts(
-									Array(
-										'cat' => '8',
-										'post_type' => 'post',
-										'orderby' => 'date',
-										'order' => 'DESC',
-										'posts_per_page' => '5'
-										)
-									);
-									if (have_posts()) : while (have_posts()) : the_post();
-								?>
-								<div> <span>
-								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
-								?>
-								</span>　<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a> </div>
-								<?php endwhile; endif; wp_reset_query(); ?>
-							</li>
-							<!--内牧-->
 							<li class="hide">
 								<?php
 									query_posts(
@@ -257,17 +157,41 @@
 									);
 									if (have_posts()) : while (have_posts()) : the_post();
 								?>
-								<div> <span>
+								<?php get_template_part('template-parts/media','posttitle')?>
+								<?php endwhile; endif; wp_reset_query(); ?>
+							</li>
+							<!--平方-->
+							<li class="hide">
 								<?php
-									$d_year = get_the_time('Y');
-									$d_month = get_the_time('m');
-									$d_day = get_the_time('d');
-									$d_youbi = get_the_time('D');
-									echo $d_year."年".$d_month."月".$d_day."日(".$d_youbi.")";
+									query_posts(
+									Array(
+										'cat' => '6',
+										'post_type' => 'post',
+										'orderby' => 'date',
+										'order' => 'DESC',
+										'posts_per_page' => '5'
+										)
+									);
+									if (have_posts()) : while (have_posts()) : the_post();
 								?>
-								</span>　<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-								</a> </div>
+								<?php get_template_part('template-parts/media','posttitle')?>
+								<?php endwhile; endif; wp_reset_query(); ?>
+							</li>
+							<!--内牧-->
+							<li class="hide">
+								<?php
+									query_posts(
+									Array(
+										'cat' => '5',
+										'post_type' => 'post',
+										'orderby' => 'date',
+										'order' => 'DESC',
+										'posts_per_page' => '5'
+										)
+									);
+									if (have_posts()) : while (have_posts()) : the_post();
+								?>
+								<?php get_template_part('template-parts/media','posttitle')?>
 								<?php endwhile; endif; wp_reset_query(); ?>
 							</li>
 							<!--平井-->
@@ -300,13 +224,16 @@
 						</ul>
 						<p class="text_right"><i class="fa fa-external-link-square white"></i><a href="<?php echo home_url() ; ?>/category/media/">&gt;&gt;メディア掲載情報一覧</a></p>
 					</div>
-					<div id="tenkyu_list">
-						<p class="info"><strong>夢らんど</strong>ニュース</p>
+					<div class="h2-flex">
+						<h2 class= "title-home">夢らんどニュース</h2>
+					</div>
+					<article id="tenkyu_list">
+						<!-- <p class="info"><strong>夢らんど</strong>ニュース</p> -->
 						<ul class="content">
 							<?php
 								query_posts(
 								Array(
-									'cat' => '12',
+									'cat' => '7',/* ニュース */
 									'post_type' => 'post',
 									'orderby' => 'date',
 									'order' => 'DESC',
@@ -336,7 +263,7 @@
 							</li>
 							<?php endwhile; endif; wp_reset_query(); ?>
 						</ul>
-					</div>
+					</article>
 					<p class="text_right"><i class="fa fa-external-link-square white"></i><a href="<?php echo home_url() ; ?>/category/news/">&gt;&gt;夢らんどニュース一覧</a></p>
 					<div class="img_bottom30"></div>
 						
@@ -352,46 +279,7 @@
 					</div>-->
 
 				</div>
-				<div id="side">
-					<div class="p-world_sidelink">
-						<ul class="glance">
-							<li><img src="<?php bloginfo('template_directory'); ?>/images/p-world.jpg" width="300" height="50" alt="P-world夢らんど新台情報" /></li>
-							<li><a href="https://www.p-world.co.jp/saitama/super-yumeland.htm" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/p-world_super.jpg" width="300" height="60" alt="P-worldスーパー夢らんど新台情報" /></a></li>
-							<li><a href="https://www.p-world.co.jp/saitama/kasukabe-yumeland.htm" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/p-world_kasukabe.jpg" width="300" height="60" alt="P-worldかすかべ夢らんど新台情報" /></a></li>
-							<li><a href="https://www.p-world.co.jp/saitama/uchimaki-yumeland.htm" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/p-world_uchimaki.jpg" width="300" height="60" alt="P-world内牧夢らんど新台情報" /></a></li>
-							<li><a href="https://www.p-world.co.jp/saitama/h-yumeland.htm" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/p-world_hirakata.jpg" width="300" height="60" alt="P-world平方夢らんど新台情報" /></a></li>
-							<!--<li><a href="https://www.p-world.co.jp/tokyo/hiraiyumeland.htm" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/p-world_hirai.jpg" width="300" height="60" alt="P-world平井夢らんど新台情報" /></a></li>-->
-						</ul>
-					</div>
 
-					<!--<div class="top_first"><a href="<?php echo home_url() ; ?>/first_guide/"><span class="button_first"><img src="<?php bloginfo('template_directory'); ?>/images/top_arrow.png" alt="パチンコ/スロット初心者ガイド" width="33" height="33" /></span></a> </div>-->
-					<!--<div class="top_media"><a href="<?php echo home_url() ; ?>/category/media/"><span class="button_media"><img src="<?php bloginfo('template_directory'); ?>/images/top_arrow.png" alt="夢らんどメディア情報へ" width="33" height="33" /></span></a> </div>-->
-
-					<div class="top_facebook">
-						<a href="https://www.facebook.com/taiheiyumeland" target="_blank">
-							<span class="button_facebook"><img src="<?php bloginfo('template_directory'); ?>/images/top_arrow.png" alt="夢らんどFacebookへ" width="33" height="33" /></span>
-							<div class="fb-like-box" data-href="https://www.facebook.com/taiheiyumeland" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
-						</a>
-					</div>
-					<div id="banner">
-						<ul class="glance">
-							<li>
-								<a href="https://www.youtube.com/user/yumelandgroup/videos" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/youtube.jpg" width="300" height="51" alt="YOUTUBE夢らんどチャンネル" />
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo home_url() ; ?>/category/news/volunteer/"><img src="<?php bloginfo('template_directory'); ?>/images/volunteer.jpg" width="300" height="130" alt="夢らんどの社会貢献活動" />
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div id="banner_arubaito">
-						<div class="button">
-							<a href="<?php echo home_url() ; ?>/saiyou/" class="glance"><img src="<?php bloginfo('template_directory'); ?>/images/banner_arubaito_button.png" width="104" height="83" alt="今すぐ夢らんど採用募集要項を確認" />
-							</a>
-						</div>
-					</div>
-				</div>
 			</div><!--contents END--> 
 		</div>
 		<div class = "tabsp-layout">

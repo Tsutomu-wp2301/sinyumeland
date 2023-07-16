@@ -79,12 +79,12 @@ p {
 body {
 	/*font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif;*/
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1.22;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
-	background-image: url(images/bk.jpg);
+	/* background-image: url(images/bk.jpg); */
 	background-repeat: repeat;
 	position: relative;
 	color: #FFF;
@@ -997,6 +997,14 @@ body {
 		margin-bottom: auto;
 		margin-left: auto;
 	}
+
+
+/* スライダー home.php */
+.swiper-slide {
+	width: 400px;
+}
+
+
 
 	/*スライドショー*/	
 
@@ -2036,14 +2044,15 @@ body {
 		transition: 0.5s;
 	}
 	.p-menu-item:hover {
-		background-color:#dcd8d8c3;
+		background: linear-gradient(to bottom right, #dcd8d8c3, #f5f5f5);
+
 	}
 
 	.p-menu-item a {
 		display: flex;
 		height: 50px;
 		align-items: center;
-		color: #000;
+		color: #696666;
 		font-size: 1rem;
 		padding-left: 40px;
 		padding-right: 40px;
@@ -2080,7 +2089,7 @@ body {
 		position: absolute;
 	}
 	.p-inner-list:hover {
-		background-color: #dcd8d8b3;
+		background-color: #dcd8d8df;
 		font-weight: bold;
 	}
 	.p-inner-list a {
@@ -2359,11 +2368,13 @@ body {
 	}
 
 	/* ----------------------------------------------------
-		point3　トップページのみ
+		point3　トップページのみ スライダー
 	---------------------------------------------------- */
 
-
-
+/* スライダーのカーソル変更 */
+	.swiper-autoheight {
+		cursor: grab;
+	}
 
 
 
@@ -2481,34 +2492,177 @@ body {
 
 	#contents {
 		text-align: left;
-		width: 1000px;
-		margin-top: 30px;
+		width: 80%;
+		max-width: 1300px;
+		margin-top: 70px;
 		margin-right: auto;
 		margin-bottom: 0px;
 		margin-left: auto;
 	}
 
 	/* ----------------------------------------------------
-		main
+		main メイン
 	---------------------------------------------------- */
 
 	/*トップページ用main*/
 
 
+ /* イントロダクション　店舗一覧、採用情報、企業情報 */
+
+ .p-introduction--wrapper {
+
+ }
+ .p-introduction--flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+ .p-introduction img {
+	height: auto;
+	object-fit: cover;
+	width: 30vw;
+
+ }
+ .p-introduction__tenpo,
+ .p-introduction__recruit,
+ .p-introduction__company {
+	width: 30vw;
+	margin: 0% 1% 0% 1%;
+	position: relative;
+	font-family: 'M+m1';
+ }
+ .p-introduction span {
+	color: #000;
+	display: block;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 1.15rem;
+	font-weight: 300;
+	position: relative;
+ }
+ .p-introduction span::after {
+	content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #cc0000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+ }
+ .p-introduction a {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+	text-decoration: none;
+ }
+
+/* イントロダクション　ホバー時の設定 */
+.p-introduction__tenpo:hover img,
+.p-introduction__recruit:hover img,
+.p-introduction__company:hover img {
+	transition: filter 0.5s ease;
+}
+
+.p-introduction__tenpo:hover img,
+.p-introduction__recruit:hover img,
+.p-introduction__company:hover img {
+  filter: brightness(0.8);
+}
+.p-introduction__tenpo:hover span::after,
+.p-introduction__recruit:hover span::after,
+.p-introduction__company:hover span::after {
+  opacity: 1;
+}
+
+/* .image-overlay {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.p-introduction__tenpo:hover .image-overlay,
+.p-introduction__recruit:hover .image-overlay,
+.p-introduction__company:hover .image-overlay {
+  display: block;
+} */
 
 
 
 
+	/* メディア情報一覧　テンプレート */
 
-
-	#contents #main {
-		float: left;
-		width: 680px;
+	.p-title a {
+		color: #900;
+		font-size: 16px;
+	}
+	.p-title {
+		margin: 10px 0px 10px 10px;
 	}
 
+	.p-content {
+		margin: 0px 0px 0px 10px;
+	}
+
+	.p-content a {
+		display: block;
+		color: #900;
+		font-size: 12px;
+		margin-top: 10px;
+	}
+
+	.p-kokate {
+		background-color: #900;
+		font-size: 10px;
+		padding: 3px;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+	.p-content--flex {
+		display: flex;
+		padding: 0px 30px;
+	}
+	.p-content--flex img {
+		height: 200px;
+		width: 300px;
+		object-fit: cover;
+	}
+
+	.p-content__text--flex {
+		display: flex;
+		flex-direction: column;
+
+	}
+	.p-date--wrapper > .date {
+		margin-left: 30px;
+		margin-top: 15px;
+		display: block;
+	}
+	.p-date--wrapper::after {
+		height: 1px;
+		width: 100%;
+		content: "";
+		background-color: #b9b6b6;
+		display: block;
+		margin: 30px 0px;
+	}
+
+
+
+
 	#contents #main {
-		float: left;
-		width: 680px;
+		width: 100%;
 	}
 
 	/*階層ページ用main*/
@@ -2644,9 +2798,9 @@ body {
 		padding-right: 20px;
 		padding-bottom: 10px;
 		padding-left: 20px;
-		border-top-width: 3px;
+		/* border-top-width: 8px;
 		border-top-style: solid;
-		border-top-color: #cc0000;
+		border-top-color: #cc0000; */
 	}
 
 	#ameba_pick .flashnews {
@@ -2658,12 +2812,13 @@ body {
 
 	#ameba_pick .flashnews .left {
 		float: left;
-		width: 200px;
+		width: 250px;
+		margin-left: 50px;
 	}
 
-	#ameba_pick .flashnews .right {
-		float: right;
-		width: 420px;
+	#ameba_pick .flashnews .p-text--left {
+		float: left;
+		width: 500px;
 	}
 
 	#ameba_pick .flashnews .right p {
@@ -3760,12 +3915,16 @@ body {
 
 
 	#footer {
-		background-image: url(images/footer_bk.png);
-		background-repeat: repeat-x;
+		/* background-image: url(images/footer_bk.png);
+		background-repeat: repeat-x; */
+		border-top: 2px solid #d5d4d4;
+    background-color: #faf8f8;
+		color: #696666;
 		text-align: center;
-		height: 242px;
+		/* height: 242px; */
 		margin-right: auto;
 		margin-left: auto;
+		border-bottom: 2px solid rgb(100, 2, 2);
 	}
 
 	#footer #fnavi {
@@ -3775,14 +3934,14 @@ body {
 		margin-left: auto;
 	}
 
-	#footer #fnavi ul, #footer #fnavi li {
-	}
-
 	#footer #fnavi li {
 		float: left;
 		line-height: 40px;
 		font-size: 11px;
-		color: #FFF;
+		/* color: #FFF; */
+	}
+	#footer a {
+		color: #696666;
 	}
 
 	#footer #footer_in {
@@ -3812,20 +3971,10 @@ body {
 
 	#footer #footer_link {
 		text-align: left;
-		width: 1000px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-
-	#footer #footer_link ul, #footer #footer_link li {
 	}
 
 	#footer #footer_link li {
-		float: left;
-		margin-right: 10px;
-		background-color: #FFF;
-		height: 28px;
-		width: 150px;
+		padding: 10px;
 	}
 
 	#footer2 #footer_img_default {
@@ -3839,6 +3988,47 @@ body {
 		-moz-background-size: cover;
 		background-size: cover;
 	}
+
+	.p-footer {
+		background-color: #900;
+	}
+
+	.p-footer__logo__flex {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+	.p-footer__logo img {
+		display: block;
+    height: 30px;
+    width: auto;
+    padding-left: 30px;
+	}
+	.p-footer__link {
+		margin-left: 30px;
+	}
+	.p-footer__link a {
+		color: #696666;
+	}
+	.p-footer__link__flex {
+		display: flex;
+		flex-direction: column;
+	}
+	.p-footer__link__flex li {
+		display: block;
+	}
+
+	.p-footer__wrapper {
+		display: flex;
+		align-items: center;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	.p-footer__link__wrapper__flex {
+		display: flex;
+		margin-left: 50px;
+	}
+
 
 	/*店舗一覧*/
 
@@ -4012,7 +4202,7 @@ body {
 		margin: 0 auto;
 		position: relative;
 		z-index: -9999;
-		top: 129px;
+		top: 90px;
 		min-height: 578px;
 	}
 
@@ -4710,6 +4900,9 @@ body {
 
 
 	.p-logo--yumeland {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 		position: fixed;
 		width: 100px;
 		height: 100px;
@@ -4718,6 +4911,12 @@ body {
 		right: 13px;
 		z-index: 10;
 	}
+	.show {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+
 	.c-rollover {
 		position: relative;
 		width: 100px;
@@ -5280,26 +5479,60 @@ body {
 
 
 	#tenkyu_list {
-		border-top-width: 5px;
-		border-top-style: solid;
-		border-top-color: #FF0000;
+		/* border-top: 8px solid #cc0000; */
 		background-color: #FFF;
-		padding-bottom: 10px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	.h2-flex {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	h2.title-home {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 2em;
+		margin-top: 3rem;
+		color: #000;
+		font-size: 2rem;
+		font-weight: bold;
 	}
 
-	#tenkyu_list p.info {
-		font-size: 14px;
-		font-weight: bold;
-		text-indent: 25px;
-		display: block;
-		padding: 5px;
-		color: #FFF;
-		margin-bottom: 10px;
+	 .title-home.show-underline:before {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		display: inline-block;
+		width: 0px;
+		height: 5px;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
 		background-color: #cc0000;
-		background-image: url(images/6arrow.png);
-		background-repeat: no-repeat;
-		background-position: 10px 8px;
+		border-radius: 2px;
+		animation: underline-appear 1s ease-in-out forwards;
+		animation-delay: 0.2s; /* 1秒遅延 */
 	}
+	@keyframes underline-appear {
+		0% {
+			width: 0px;
+		}
+		100% {
+			width: 70px;
+		}
+	}
+
+		h2.title-home.show-underline:before {
+		animation-name: underline-appear;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	}
+	
+	
+
+
 
 	#tenkyu_list ul, #tenkyu_list li {
 		margin: 0px;

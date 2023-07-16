@@ -102,12 +102,8 @@
 			<div id="container"> 
 				<!--ヘッダーテンプレートの呼び出し-->
 				<?php 
-					// get_template_part( 'template-parts/header', 'menu' ); 
-				?>
-				<?php 
 					 get_template_part( 'template-parts/header', 'menu2' ); 
 				?>
-
 				<!--slide-->
 				<div id="bx_slide">
 					<ul class="bxslider">
@@ -122,4 +118,5 @@
 				</div><!--slide END--> 
 			</div>
 		</div>
+
 		<?php wp_head(); ?>

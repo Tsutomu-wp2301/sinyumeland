@@ -1479,7 +1479,144 @@ body {
 		padding-bottom: 5px;
 		padding-left: 10px;
 	}
+
+	/* メインコンテンツのレイアウト */
+	.p-content--sp {
+		text-align: left;
+    width: 80%;
+    max-width: 1300px;
+    margin-top: 70px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+	}
+	.p-main--sp {
+		width: 100%;
+	}
+
+	/* タイトルの装飾と動き */
+	.h2-flex {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	h2.title-home {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 2em;
+		margin-top: 3rem;
+		color: #000;
+		font-size: 3rem;
+		font-weight: bold;
+	}
+	 .title-home.show-underline:before {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		display: inline-block;
+		width: 0px;
+		height: 5px;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		background-color: #cc0000;
+		border-radius: 4px;
+		animation: underline-appear 1s ease-in-out forwards;
+		animation-delay: 0.2s; /* 1秒遅延 */
+	}
+	@keyframes underline-appear {
+		0% {
+			width: 0px;
+		}
+		100% {
+			width: 70px;
+		}
+	}
+		h2.title-home.show-underline:before {
+		animation-name: underline-appear;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	}
+
+
+	/* 記事一覧表示のテンプレート */
+	.p-title a {
+		color: #cd0707;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.p-title {
+		margin: 10px 0px 10px 10px;
+	}
+	.p-content {
+		margin: 0px 0px 0px 10px;
+		line-height: 20px;
+	}
+	.p-content a {
+		display: block;
+		color: #900;
+		font-size: 14px;
+		margin-top: 10px;
+	}
+	.p-kokate {
+		background-color: #900;
+		font-size: 10px;
+		padding: 3px;
+		color: #fff;
+		border-radius: 5px;
+	}
+	.p-content--flex {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0px 30px;
+	}
+	.p-content--flex img {
+		height: auto;
+		width: 500px;
+		object-fit: cover;
+	}
+	.p-content__text--flex {
+		display: flex;
+		flex-direction: column;
+		max-width: 500px;
+	}
+	.p-date--wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.p-date--wrapper .date {
+
+	}
+	.p-date--wrapper > .date {
+		margin-left: 0px;
+		margin-top: 15px;
+	}
+	.p-date--wrapper::after {
+		height: 1px;
+		width: 100%;
+		content: "";
+		background-color: #b9b6b6;
+		/* display: block; */
+		margin: 30px 0px;
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2510,6 +2647,7 @@ body {
  /* イントロダクション　店舗一覧、採用情報、企業情報 */
 
  .p-introduction--wrapper {
+	margin-top: 20px;
 
  }
  .p-introduction--flex {
@@ -2571,7 +2709,7 @@ body {
 .p-introduction__tenpo:hover img,
 .p-introduction__recruit:hover img,
 .p-introduction__company:hover img {
-  filter: brightness(0.8);
+  filter: brightness(0.6);
 }
 .p-introduction__tenpo:hover span::after,
 .p-introduction__recruit:hover span::after,
@@ -2603,8 +2741,9 @@ body {
 	/* メディア情報一覧　テンプレート */
 
 	.p-title a {
-		color: #900;
+		color: #cd0707;
 		font-size: 16px;
+		font-weight: bold;
 	}
 	.p-title {
 		margin: 10px 0px 10px 10px;
@@ -5473,7 +5612,9 @@ body {
 		店休情報
 	---------------------------------------------------- */
 
-
+.display-nnone {
+	display: none;
+}
 
 
 
@@ -5510,7 +5651,7 @@ body {
 		-webkit-transform: translateX(-50%);
 		transform: translateX(-50%);
 		background-color: #cc0000;
-		border-radius: 2px;
+		border-radius: 4px;
 		animation: underline-appear 1s ease-in-out forwards;
 		animation-delay: 0.2s; /* 1秒遅延 */
 	}
@@ -5556,31 +5697,57 @@ body {
 		font-weight: bold;
 	}
 
-	#tenkyu_list ul li .honbun {
+	.p-tenkyu--honbun {
+		text-align: center;
+		font-size: 16px;
+	}
+
+	#tenkyu_list ul li .p-tenkyu--honbun {
 		border-bottom-width: 1px;
 		border-bottom-style: dotted;
 		border-bottom-color: #999;
 		line-height: 20px;
 	}
 
-	#tenkyu_list ul li .honbun img {
+	#tenkyu_list ul li .p-tenkyu--honbun img {
 		float: left;
+		
 		margin-right: 10px;
 		margin-bottom: 10px;
 	}
 
-	#tenkyu_list ul li .honbun a {
+	.p-news--flex {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 20px;
+	}
+	.p-news--text {
+		font-size: 14px;
+		margin-left: 10px;
+		line-height: 150%;
+		margin-top: -20px;
+	}
+	.p-news--text a {
+		color: #900;
+	}
+	#tenkyu_list ul li .p-tenkyu--honbun a {
 		font-weight: bold;
 		color: #cd0707;
 	}
 
-	#tenkyu_list ul li .title {
+	/* #tenkyu_list ul li .title {
 		line-height: 40px;
 	}
 
 	#tenkyu_list ul li .title a {
 		font-weight: bold;
 		color: #cd0707;
+	} */
+	.p-news--title a {
+		line-height: 40px;
+		color: #cd0707;
+		font-weight: bold;
+		font-size: 16px;
 	}
 
 	/* ----------------------------------------------------
